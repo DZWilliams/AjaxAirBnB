@@ -34,7 +34,7 @@ dataframe["Airbnb Listing ID"] = dataframe["Airbnb Listing ID"].astype(int)
 dataframe["Price"] = "£ " + dataframe["Price"].round(2).astype(str) 
 # Rename the number to a string
 dataframe["Location"] = dataframe["Location"].replace(
-    {1.0: "To visit", 0.0: "Airbnb listing"}
+    {1.0: "Johan Cruijff ArenA", 0.0: "Airbnb listing"}
 )
 
 # Display dataframe and text
