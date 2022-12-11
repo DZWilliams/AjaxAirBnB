@@ -1,9 +1,14 @@
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+from PIL import Image
+image = Image.open('ajaxbanner.jpeg')
+
 
 # Display title and text
-st.title("Week 1 - Data and visualization")
+st.title("Week 1 - Data and Visualization")
+st.write("Finding the closest/cheapest AirBnB venues to the Johan Cruijff ArenA")
+st.image(image, caption='Ajax Arena Ultra Banner')
 st.markdown("Here we can see the dataframe created during this weeks project.")
 
 # Read dataframe
