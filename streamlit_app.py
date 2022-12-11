@@ -31,7 +31,7 @@ dataframe = dataframe[dataframe["Price"] <= 100]
 # Display as integer
 dataframe["Airbnb Listing ID"] = dataframe["Airbnb Listing ID"].astype(int)
 # Round of values
-dataframe["Price"] = "£ " + dataframe["Price"].round(2).astype(str) # <--- CHANGE THIS POUND SYMBOL IF YOU CHOSE CURRENCY OTHER THAN POUND
+dataframe["Price"] = "£ " + dataframe["Price"].round(2).astype(str) 
 # Rename the number to a string
 dataframe["Location"] = dataframe["Location"].replace(
     {1.0: "To visit", 0.0: "Airbnb listing"}
@@ -39,7 +39,7 @@ dataframe["Location"] = dataframe["Location"].replace(
 
 # Display dataframe and text
 st.dataframe(dataframe)
-st.markdown("Below is a map showing all the Airbnb listings with a red dot and the location we've chosen with a blue dot.")
+st.markdown("Below is a map showing all the Airbnb listings with a red dot and the Johan Cruijff ArenA with a blue dot.")
 
 # Create the plotly express figure
 fig = px.scatter_mapbox(
@@ -47,14 +47,14 @@ fig = px.scatter_mapbox(
     lat="Latitude",
     lon="Longitude",
     color="Location",
-    zoom=11,
+    zoom=10,
     height=500,
     width=800,
     hover_name="Price",
     hover_data=["Meters from chosen location", "Location"],
     labels={"color": "Locations"},
 )
-fig.update_geos(center=dict(lat=dataframe.iloc[0][1], lon=dataframe.iloc[0][1]))
+fig.update_geos(center=dict(lat=dataframe.iloc[0][2], lon=dataframe.iloc[0][3]))
 fig.update_layout(mapbox_style="stamen-terrain")
 
 # Show the figure
